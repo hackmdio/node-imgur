@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "commander": "^2.3.0",
-    "glob": "^4.0.5",
+    "glob": "^7.1.2",
     "q": "^1.0.1",
     "request": "^2.40.0"
   },

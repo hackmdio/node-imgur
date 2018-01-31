@@ -18,10 +18,10 @@
     "node": ">= v0.10.30"
   },
   "dependencies": {
-    "commander": "^2.3.0",
+    "commander": "^2.13.0",
     "glob": "^7.1.2",
-    "q": "^1.0.1",
-    "request": "^2.40.0"
+    "q": "^2.0.3",
+    "request": "^2.83.0"
   },
   "main": "lib/imgur.js",
   "bin": {

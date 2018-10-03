@@ -117,7 +117,32 @@ imgur.saveClientId(path)
 imgur.loadClientId(path)
     .then(imgur.setClientId);
 ```
+#### Dealing with API URL:
 
+In order to change the API Url say Mashape URL, use setAPIUrl(MashapeURL)
+
+```javascript
+//Setting
+imgur.setAPIUrl('https://api.imgur.com/3/');
+
+//If setAPIUrl() is not called, API URL is read from process.env.IMGUR_API_URL
+
+//Getting
+imgur.getAPIUrl();
+```
+#### Dealing with Mashape Key
+
+Requests to the Mashape URL expects a X-Mashape-Key: MashapeKey header. 
+Set Mashape Key by using setMashapeKey(MashapeKey) method.
+Note: Defaults to process.env.IMGUR_MASHAPE_KEY
+
+```javascript
+//Setting
+imgur.setMashapeKey(https://imgur-apiv3.p.mashape.com/);
+
+//Getting
+imgur.getMashapeKey()
+```
 #### Dealing with credentials:
 
 For when you want to upload images to an account.
@@ -159,6 +184,28 @@ imgur.uploadFile('~/*.(jpg|png|gif)')
     .catch(function (err) {
         console.error(err.message);
     });
+```
+#### Searching images within the gallery:
+
+The first argument should be a query to search and it's the only required option. The second argument is optional params to sort your query by. 
+
+- `sort` - Accepts 'time', 'viral', or 'top' as a value. Defaults to top.
+- `dateRange` - Accepts 'day', 'week', 'month', 'year', or 'all' as a value. Defaults to all.
+- `page` - Accepts an integer (e.g. 1, 2, 3, 4) as a value. Defaults to 1.
+
+Search returns an object with the query response as an array of objects that include an image's ID, title, description, views, etc.. and the params you sent with the request. 
+
+```javascript
+var query = 'cats';
+var optionalParams = {sort: 'top', dateRange: 'week', page: 1}
+imgur.search(query, optionalParams)
+    .then(function(json) {
+        console.log(json);
+    })
+    .catch(function (err) {
+        console.error(err);
+    });
+
 ```
 
 #### Fetching image data:
@@ -263,6 +310,20 @@ imgur.uploadAlbum(images, uploadType /*, failSafe */)
         console.error(err.message);
     });
 
+```
+
+#### Deleting anonymous uploads
+
+Delete an image based on the deletehash(generated during the image upload)
+
+```javascript
+imgur.deleteImage(deletehash)
+    .then(function(status) {
+        console.log(status);  
+    })
+    .catch(function(err) {
+        console.error(err.message);
+    });
 ```
 
 ## License

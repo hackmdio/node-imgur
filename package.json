@@ -1,8 +1,8 @@
 {
+  "name": "@hackmd/imgur",
   "author": "Kai Mallea <kmallea@gmail.com>",
-  "name": "imgur",
   "description": "Upload images to imgur.com",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "homepage": "https://github.com/kaimallea/node-imgur",
   "license": "MIT",
   "keywords": [
@@ -17,12 +17,6 @@
   "engines": {
     "node": ">= v0.10.30"
   },
-  "dependencies": {
-    "commander": "^2.13.0",
-    "glob": "^7.1.2",
-    "q": "^2.0.3",
-    "request": "^2.83.0"
-  },
   "main": "lib/imgur.js",
   "bin": {
     "imgur": "./cli.js"
@@ -30,10 +24,16 @@
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
+  "dependencies": {
+    "commander": "^2.13.0",
+    "glob": "^7.1.2",
+    "q": "^2.0.3",
+    "request": "^2.83.0"
+  },
   "devDependencies": {
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
-    "mocha": "^2.3.3",
+    "mocha": "^6.1.4",
     "sinon": "^1.17.1",
     "sinon-chai": "^2.8.0"
   }
